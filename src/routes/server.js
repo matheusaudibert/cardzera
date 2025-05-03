@@ -1,0 +1,137 @@
+const express = require("express");
+const { getServerIcon } = require("../utils/serverUtils");
+const { generateServerInviteSVG } = require("../image/svg");
+const { generateErrorSVG } = require("../image/errorSvg");
+const router = express.Router();
+
+// Route to get server information by ID
+router.get("/id/:serverId", async (req, res) => {
+  try {
+    const client = req.app.locals.discordClient;
+    const serverId = req.params.serverId;
+
+    // Try to fetch the guild by ID
+    const guild = await client.guilds.fetch(serverId).catch(() => null);
+
+    if (!guild) {
+      return res.status(404).json({
+        error: "Not found",
+        message:
+          "The bot is not a member of this server or the server ID is invalid.",
+      });
+    }
+
+    // Fetch members to get online count
+    await guild.members.fetch();
+    const onlineMembers = guild.members.cache.filter(
+      (member) =>
+        member.presence?.status && member.presence.status !== "offline"
+    ).size;
+
+    // Fetch server details (simplified)
+    const serverInfo = {
+      id: guild.id,
+      name: guild.name,
+      memberCount: guild.memberCount,
+      onlineCount: onlineMembers,
+      iconURL: guild.iconURL({ dynamic: true, size: 1024 }),
+      bannerURL: guild.bannerURL({ dynamic: true, size: 1024 }),
+      serverIcon: getServerIcon(guild),
+    };
+
+    res.json(serverInfo);
+  } catch (error) {
+    console.error("Error fetching server info:", error);
+    res.status(500).json({
+      error: "Server error",
+      message: "An error occurred while fetching server information.",
+    });
+  }
+});
+
+// Route to get server invite image with customization options
+router.get("/invite/:serverId", async (req, res) => {
+  try {
+    const client = req.app.locals.discordClient;
+    const serverId = req.params.serverId;
+
+    // Get customization parameters from query string with defaults
+    const backgroundColor = req.query.backgroundColor || "1a1c1f"; // Default dark background
+    const buttonColor = req.query.buttonColor || "00863A"; // Default green button
+    const buttonText = req.query.buttonText || "Join"; // Default button text
+    const buttonTextColor = req.query.buttonTextColor || "ffffff"; // New parameter
+    const infoColor = req.query.infoColor || "b5bac1"; // Default info text color
+    const nameColor = req.query.nameColor || "ffffff"; // Default server name color (white)
+
+    // New parameter: borderRadius (limited between 0-30)
+    let borderRadius = parseInt(req.query.borderRadius);
+    borderRadius = !isNaN(borderRadius)
+      ? Math.min(Math.max(borderRadius, 0), 30) // Clamp between 0-30
+      : 10; // Default value
+
+    // Try to fetch the guild by ID
+    const guild = await client.guilds.fetch(serverId).catch(() => null);
+
+    // If guild not found, return error SVG instead of JSON error
+    if (!guild) {
+      // Create customization object for error SVG
+      const customization = {
+        backgroundColor: formatColor(backgroundColor),
+        borderRadius: borderRadius,
+        textColor: "#ffffff", // Always use white text for error
+      };
+
+      // Generate and send error SVG
+      const errorSvg = generateErrorSVG(customization);
+      res.setHeader("Content-Type", "image/svg+xml");
+      return res.send(errorSvg);
+    }
+
+    // Fetch members to get online count
+    await guild.members.fetch();
+    const onlineMembers = guild.members.cache.filter(
+      (member) =>
+        member.presence?.status && member.presence.status !== "offline"
+    ).size;
+
+    // Server data for SVG with customization options
+    const serverData = {
+      name: guild.name,
+      iconURL: guild.iconURL({ dynamic: true, size: 128 }),
+      memberCount: guild.memberCount,
+      onlineCount: onlineMembers,
+      // Pass customization parameters
+      customization: {
+        backgroundColor: formatColor(backgroundColor),
+        buttonColor: formatColor(buttonColor),
+        buttonText: buttonText,
+        buttonTextColor: formatColor(buttonTextColor), // Add new parameter
+        infoColor: formatColor(infoColor),
+        borderRadius: borderRadius,
+        nameColor: formatColor(nameColor),
+      },
+    };
+
+    // Generate SVG
+    const svg = generateServerInviteSVG(serverData);
+
+    // Send as image
+    res.setHeader("Content-Type", "image/svg+xml");
+    res.send(svg);
+  } catch (error) {
+    console.error("Error generating server invite image:", error);
+
+    // Also return error SVG for exceptions instead of plain text
+    const errorSvg = generateErrorSVG();
+    res.setHeader("Content-Type", "image/svg+xml");
+    res.status(500).send(errorSvg);
+  }
+});
+
+// Helper function to ensure colors are properly formatted with #
+function formatColor(colorString) {
+  if (!colorString) return "#1a1c1f"; // Default
+  return colorString.startsWith("#") ? colorString : `#${colorString}`;
+}
+
+module.exports = router;

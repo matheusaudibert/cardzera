@@ -1,0 +1,21 @@
+{
+  "name": "discord-server-info-bot",
+  "version": "1.0.0",
+  "description": "Discord bot with API to get server information",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.8.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": ">=16.9.0"
+  }
+}

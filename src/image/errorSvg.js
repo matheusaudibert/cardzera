@@ -1,0 +1,46 @@
+/**
+ * Generates an error SVG when server ID doesn't exist
+ * @param {Object} customization - Optional customization parameters
+ * @returns {string} - SVG markup as a string
+ */
+function generateErrorSVG(customization = {}) {
+  // Extract customization options with defaults
+  const {
+    backgroundColor = "#1a1c1f",
+    textColor = "#ffffff",
+    borderRadius = 10,
+  } = customization;
+
+  // Use same dimensions as the regular SVG
+  const width = 375;
+  const height = 150;
+
+  const circleYPosition = height / 2 - 20;
+
+  return `
+    <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background with customizable color and border radius -->
+      <rect width="${width}" height="${height}" rx="${borderRadius}" ry="${borderRadius}" fill="${backgroundColor}" />
+      
+      <!-- Error icon (simple "X" in a circle) -->
+      <circle cx="${
+        width / 2
+      }" cy="${circleYPosition}" r="25" fill="none" stroke="#ff3a30" stroke-width="2" />
+      <path d="M ${width / 2 - 12},${circleYPosition - 12} L ${
+    width / 2 + 12
+  },${circleYPosition + 12} M ${width / 2 - 12},${circleYPosition + 12} L ${
+    width / 2 + 12
+  },${circleYPosition - 12}" stroke="#ff3a30" stroke-width="2" />
+      
+      <!-- Error message -->
+      <text x="${width / 2}" y="${
+    height / 2 + 20
+  }" font-family="Arial, sans-serif" font-size="16" fill="${textColor}" text-anchor="middle" font-weight="bold">Server not found</text>
+      <text x="${width / 2}" y="${
+    height / 2 + 40
+  }" font-family="Arial, sans-serif" font-size="14" fill="${textColor}" opacity="0.8" text-anchor="middle">The Bot is not a member of the server</text>
+    </svg>
+  `;
+}
+
+module.exports = { generateErrorSVG };
