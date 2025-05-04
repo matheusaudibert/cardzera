@@ -1,5 +1,5 @@
 const express = require("express");
-const { getServerIcon } = require("../utils/serverUtils");
+const { getServerIcon, base64Icon } = require("../utils/serverUtils");
 const { generateServerInviteSVGWithBase64Image } = require("../image/svg");
 const { generateErrorSVG } = require("../image/errorSvg");
 const router = express.Router();
@@ -49,10 +49,14 @@ router.get("/invite/:serverId", async (req, res) => {
         member.presence?.status && member.presence.status !== "offline"
     ).size;
 
+    // Convert server icon to base64 before sending to SVG generator
+    const iconURL = guild.iconURL();
+    const base64IconData = await base64Icon(iconURL);
+
     // Server data for SVG with customization options
     const serverData = {
       name: guild.name,
-      iconURL: guild.iconURL({ dynamic: false, extension: "png" }),
+      iconURL: base64IconData, // Já passa o ícone em formato base64
       memberCount: guild.memberCount,
       onlineCount: onlineMembers,
       // Pass customization parameters

@@ -41,6 +41,33 @@ function getServerIcon(guild) {
   return null;
 }
 
+function base64Icon(iconURL) {
+  return new Promise((resolve, reject) => {
+    if (!iconURL) {
+      resolve(null);
+      return;
+    }
+    fetch(iconURL)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.arrayBuffer();
+      })
+      .then((arrayBuffer) => {
+        // Converter arrayBuffer para Buffer do Node.js
+        const buffer = Buffer.from(arrayBuffer);
+        const base64 = buffer.toString("base64");
+        resolve(`data:image/png;base64,${base64}`);
+      })
+      .catch((error) => {
+        console.error("Error fetching icon:", error);
+        resolve(null);
+      });
+  });
+}
+
 module.exports = {
   getServerIcon,
+  base64Icon,
 };
