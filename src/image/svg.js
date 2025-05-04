@@ -89,7 +89,7 @@ async function generateServerInviteSVGWithBase64Image(serverData) {
   const buttonTextY = buttonY + buttonHeight / 2 + 5;
 
   return `
-    <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+    <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <rect width="${width}" height="${height}" rx="${borderRadius}" ry="${borderRadius}" fill="${backgroundColor}" />
       <defs>
         <clipPath id="roundedImageCorners">
@@ -101,7 +101,7 @@ async function generateServerInviteSVGWithBase64Image(serverData) {
         base64Icon
           ? `<image
               x="${iconX}" y="${iconY}" width="${iconSize}" height="${iconSize}"
-              href="${base64Icon}" clip-path="url(#roundedImageCorners)"
+              xlink:href="${base64Icon}" clip-path="url(#roundedImageCorners)"
             />`
           : `<rect x="${iconX}" y="${iconY}" width="${iconSize}" height="${iconSize}" rx="${iconRadius}" ry="${iconRadius}" fill="#5865f2" />`
       }
