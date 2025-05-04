@@ -13,12 +13,10 @@ async function fetchImageAsBase64(imageUrl) {
     const cleanUrl = imageUrl.split("?")[0];
     const ext = path.extname(cleanUrl).toLowerCase();
 
-    // Força PNG se não houver extensão válida
     let mimeType = "image/png";
     if (ext.includes("jpg") || ext.includes("jpeg")) mimeType = "image/jpeg";
-    else if (ext.includes("webp"))
-      mimeType = "image/png"; // força webp como png
-    else if (ext.includes("gif")) mimeType = "image/png"; // converte gif como png também
+    else if (ext.includes("webp")) mimeType = "image/png";
+    else if (ext.includes("gif")) mimeType = "image/png";
 
     const base64 = Buffer.from(response.data).toString("base64");
     return `data:${mimeType};base64,${base64}`;
