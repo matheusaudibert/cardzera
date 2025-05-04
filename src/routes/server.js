@@ -4,51 +4,6 @@ const { generateServerInviteSVGWithBase64Image } = require("../image/svg");
 const { generateErrorSVG } = require("../image/errorSvg");
 const router = express.Router();
 
-// Route to get server information by ID
-router.get("/id/:serverId", async (req, res) => {
-  try {
-    const client = req.app.locals.discordClient;
-    const serverId = req.params.serverId;
-
-    // Try to fetch the guild by ID
-    const guild = await client.guilds.fetch(serverId).catch(() => null);
-
-    if (!guild) {
-      return res.status(404).json({
-        error: "Not found",
-        message:
-          "The bot is not a member of this server or the server ID is invalid.",
-      });
-    }
-
-    // Fetch members to get online count
-    await guild.members.fetch();
-    const onlineMembers = guild.members.cache.filter(
-      (member) =>
-        member.presence?.status && member.presence.status !== "offline"
-    ).size;
-
-    // Fetch server details (simplified)
-    const serverInfo = {
-      id: guild.id,
-      name: guild.name,
-      memberCount: guild.memberCount,
-      onlineCount: onlineMembers,
-      iconURL: guild.iconURL({ dynamic: true, size: 1024 }),
-      bannerURL: guild.bannerURL({ dynamic: true, size: 1024 }),
-      serverIcon: getServerIcon(guild),
-    };
-
-    res.json(serverInfo);
-  } catch (error) {
-    console.error("Error fetching server info:", error);
-    res.status(500).json({
-      error: "Server error",
-      message: "An error occurred while fetching server information.",
-    });
-  }
-});
-
 // Route to get server invite image with customization options
 router.get("/invite/:serverId", async (req, res) => {
   try {
@@ -97,7 +52,7 @@ router.get("/invite/:serverId", async (req, res) => {
     // Server data for SVG with customization options
     const serverData = {
       name: guild.name,
-      iconURL: guild.iconURL({ dynamic: true, size: 128 }),
+      iconURL: guild.iconURL({ dynamic: false, extension: "png" }),
       memberCount: guild.memberCount,
       onlineCount: onlineMembers,
       // Pass customization parameters
