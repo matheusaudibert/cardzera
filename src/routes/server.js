@@ -1,6 +1,6 @@
 const express = require("express");
 const { getServerIcon } = require("../utils/serverUtils");
-const { generateServerInviteSVG } = require("../image/svg");
+const { generateServerInviteSVGWithBase64Image } = require("../image/svg");
 const { generateErrorSVG } = require("../image/errorSvg");
 const router = express.Router();
 
@@ -113,7 +113,7 @@ router.get("/invite/:serverId", async (req, res) => {
     };
 
     // Generate SVG
-    const svg = generateServerInviteSVG(serverData);
+    const svg = await generateServerInviteSVGWithBase64Image(serverData);
 
     // Send as image
     res.setHeader("Content-Type", "image/svg+xml");
