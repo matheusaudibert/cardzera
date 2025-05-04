@@ -4,7 +4,6 @@
  * @returns {Promise<string>}
  */
 async function generateServerInviteSVGWithBase64Image(serverData) {
-  console.log(serverData);
   const {
     name = "Unknown Server",
     memberCount = 0,
