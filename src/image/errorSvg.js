@@ -19,7 +19,11 @@ function generateErrorSVG(customization = {}) {
 
   return `
     <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
-      <!-- Background with customizable color and border radius -->
+      <defs>
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap');
+        </style>
+      </defs>
       <rect width="${width}" height="${height}" rx="${borderRadius}" ry="${borderRadius}" fill="${backgroundColor}" />
       
       <!-- Error icon (simple "X" in a circle) -->
@@ -35,10 +39,10 @@ function generateErrorSVG(customization = {}) {
       <!-- Error message -->
       <text x="${width / 2}" y="${
     height / 2 + 20
-  }" font-family="Arial, sans-serif" font-size="16" fill="${textColor}" text-anchor="middle" font-weight="bold">Server not found</text>
+  }" font-family="Poppins" font-size="16" fill="${textColor}" text-anchor="middle" font-weight="600">Server not found</text>
       <text x="${width / 2}" y="${
     height / 2 + 40
-  }" font-family="Arial, sans-serif" font-size="14" fill="${textColor}" opacity="0.8" text-anchor="middle">The Bot is not a member of the server</text>
+  }" font-family="Poppins" font-size="14" fill="${textColor}" opacity="0.8" text-anchor="middle">The Bot is not a member of the server</text>
     </svg>
   `;
 }

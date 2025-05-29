@@ -57,6 +57,17 @@ async function initialize() {
 // Discord events
 client.once("ready", () => {
   console.log(`Bot is online! Logged in as ${client.user.tag}`);
+
+  // Set bot status
+  client.user.setPresence({
+    activities: [
+      {
+        name: "the server 🎫",
+        type: 3,
+      },
+    ],
+    status: "online",
+  });
 });
 
 // Start everything
