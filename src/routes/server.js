@@ -5,7 +5,7 @@ const { generateErrorSVG } = require("../image/errorSvg");
 const router = express.Router();
 
 // Route to get server invite image with customization options
-router.get("/:serverId", async (req, res) => {
+router.get("/api/:serverId", async (req, res) => {
   try {
     const client = req.app.locals.discordClient;
     const serverId = req.params.serverId;
