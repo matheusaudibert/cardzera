@@ -62,7 +62,7 @@ client.once("ready", () => {
   client.user.setPresence({
     activities: [
       {
-        name: "the server 🎫",
+        name: "the server <3",
         type: 3,
       },
     ],
