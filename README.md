@@ -49,6 +49,10 @@ Example:
 
 ## Live Examples
 
+[![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716)](https://discord.gg/GU9GjTdNDf)
+
+[![Discord Server Card](https://cardzera.onrender.com/api/1112920281367973900)](https://discord.gg/t86nFuCrbj)
+
 ## Parameters
 
 You can customize your card by adding the following query parameters:
