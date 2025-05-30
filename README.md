@@ -82,7 +82,7 @@ You can customize your card by adding the following query parameters:
 > [!NOTE]
 > If the server has no photo, a default photo will be used.
 
-## GUILDS ROUTE
+## Guilds Route
 
 Get information about all servers being monitored by the bot:
 
