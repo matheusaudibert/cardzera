@@ -63,6 +63,9 @@ async function generateServerInviteSVGWithBase64Image(serverData) {
       <defs>
         <style>
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap');
+          text {
+            font-family: 'Poppins', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+          }
         </style>
       </defs>
       <rect width="${width}" height="${height}" rx="${borderRadius}" ry="${borderRadius}" fill="${backgroundColor}" />
