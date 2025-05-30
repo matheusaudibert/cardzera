@@ -78,7 +78,7 @@ You can customize your card by adding the following query parameters:
 [![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=15)](https://discord.gg/GU9GjTdNDf)
 
 > [!NOTE]
-> If the server has no photo, a default projetct photo will be used.
+> If the server has no photo, a default photo will be used.
 
 ## Contribuition
 
