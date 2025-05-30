@@ -6,7 +6,7 @@
 
 Generates a custom card for your Discord server, designed to be embedded in your GitHub README or any other platform. It visually displays your server info, making it easy to share and invite others.
 
-_This project is inspired in [lanyard-profile-readme](https://github.com/cnrad/lanyard-profile-readme) by [@cnrad](https://github.com/cnrad), that generates a discord user card by. Thx!_
+_This project is inspired in [lanyard-profile-readme](https://github.com/cnrad/lanyard-profile-readme) by [@cnrad](https://github.com/cnrad), that generates a discord user card. Thx!_
 
 ## How it works
 
@@ -46,7 +46,7 @@ Replace `:serverId` with your Discord server ID.
 Example:
 
 ```markdown
-[![Discord Server Card](https://cardzera.onrender.com/api/:your-server-id)](https://discord.gg/your-server-invite-link)
+[![Discord Server Card](https://cardzera.onrender.com/api/:serverId)](https://discord.gg/serverInviteCode)
 ```
 
 ## Live Examples
