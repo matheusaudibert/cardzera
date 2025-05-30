@@ -4,18 +4,13 @@
  * @returns {string} - SVG markup as a string
  */
 function generateErrorSVG(customization = {}) {
-  // Extract customization options with defaults
-  const {
-    backgroundColor = "#1a1c1f",
-    textColor = "#ff3a30",
-    borderRadius = 10,
-  } = customization;
+  // Extract only borderRadius from customization
+  const { borderRadius = 10 } = customization;
 
-  // Use same dimensions as the regular SVG
   const width = 375;
   const height = 150;
-
   const circleYPosition = height / 2 - 20;
+  const textColor = "#fff"; // Fixed blue color for text
 
   return `
     <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +19,7 @@ function generateErrorSVG(customization = {}) {
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap');
         </style>
       </defs>
-      <rect width="${width}" height="${height}" rx="${borderRadius}" ry="${borderRadius}" fill="${backgroundColor}" />
+      <rect width="${width}" height="${height}" rx="${borderRadius}" ry="${borderRadius}" fill="#1a1c1f" />
       
       <!-- Error icon (simple "X" in a circle) -->
       <circle cx="${
