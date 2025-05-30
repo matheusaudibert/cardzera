@@ -4,6 +4,9 @@ const { generateServerInviteSVGWithBase64Image } = require("../image/svg");
 const { generateErrorSVG } = require("../image/errorSvg");
 const router = express.Router();
 
+// Configurar pasta de arquivos estáticos
+router.use(express.static("public"));
+
 // Route to get server invite image with customization options
 router.get("/api/:serverId", async (req, res) => {
   try {
