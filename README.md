@@ -51,9 +51,9 @@ Example:
 
 ## Live Examples
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716)](https://discord.gg/GU9GjTdNDf)
+<!-- [![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716)](https://discord.gg/GU9GjTdNDf)
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1112920281367973900)](https://discord.gg/t86nFuCrbj)
+[![Discord Server Card](https://cardzera.onrender.com/api/1112920281367973900)](https://discord.gg/t86nFuCrbj) -->
 
 ## Parameters
 
@@ -72,12 +72,12 @@ You can customize your card by adding the following query parameters:
 ### Example with all parameters:
 
 ```markdown
-[![Discord Server Card](https://cardzera.onrender.com/api/:your-server-id?backgroundColor=1a1c1f&buttonColor=5865f2&buttonText=Join%20Now&buttonTextColor=ffffff&infoColor=b5bac1&nameColor=ffffff&borderRadius=15)](https://discord.gg/your-server-invite-link)
+[![Discord Server Card](https://cardzera.onrender.com/api/:serverId?backgroundColor=1a1c1f&buttonColor=5865f2&buttonText=Join%20Now&buttonTextColor=ffffff&infoColor=b5bac1&nameColor=ffffff&borderRadius=15)](https://discord.gg/serverInviteCode)
 ```
 
 ### Output:
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=15)](https://discord.gg/GU9GjTdNDf)
+<!-- [![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=15)](https://discord.gg/GU9GjTdNDf) -->
 
 > [!NOTE]
 > If the server has no photo, a default photo will be used.
