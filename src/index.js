@@ -2,6 +2,7 @@ require("dotenv").config();
 const { Client, GatewayIntentBits } = require("discord.js");
 const express = require("express");
 const serverRoutes = require("./routes/server");
+const guildsRoutes = require("./routes/guilds");
 const path = require("path");
 
 // Discord client configuration
@@ -44,6 +45,7 @@ app.get("/", (req, res) => {
 
 // Server info routes
 app.use("/", serverRoutes);
+app.use("/", guildsRoutes);
 
 // Initialize the bot and server
 async function initialize() {
