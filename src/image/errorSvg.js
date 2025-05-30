@@ -7,7 +7,7 @@ function generateErrorSVG(customization = {}) {
   // Extract customization options with defaults
   const {
     backgroundColor = "#1a1c1f",
-    textColor = "#ffffff",
+    textColor = "#ff3a30",
     borderRadius = 10,
   } = customization;
 
