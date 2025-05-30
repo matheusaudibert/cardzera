@@ -24,9 +24,11 @@ Then, it generates a beautifully styled card showing this information that you c
 1. First, [invite Cardzera Bot to your server](https://discord.com/oauth2/authorize?client_id=1368283106276147200&permissions=525312&integration_type=0&scope=bot).
 2. The bot needs to be in your server to access its information. Required permissions:
 
-   - View Channels - To access server information
-   - View Server Insights - To get member statistics
-   - Members Intent - To count online members
+   | Permission             | Description                                |
+   | ---------------------- | ------------------------------------------ |
+   | `View Channels`        | `To access server information`             |
+   | `View Server Insights` | `To acesses server features (coming soon)` |
+   | `Members Intent`       | `To count online members`                  |
 
 > [!TIP]
 > Get your server ID (Enable Developer Mode > Right click server > Copy ID)
