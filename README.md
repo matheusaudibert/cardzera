@@ -1,4 +1,8 @@
-# Cardezera
+<p align="left">
+  <img src="src/public/logo.png" alt="CardzeraLogo" width="400">
+</p>
+
+# Cardzera
 
 Generates a custom card for your Discord server, designed to be embedded in your GitHub README or any other platform. It visually displays your server info, making it easy to share and invite others.
 
@@ -45,10 +49,6 @@ Example:
 
 ## Live Examples
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716)](https://discord.gg/GU9GjTdNDf)
-
-[![Discord Server Card](https://cardzera.onrender.com/api/1112920281367973900)](https://discord.gg/t86nFuCrbj)
-
 ## Parameters
 
 You can customize your card by adding the following query parameters:
@@ -70,8 +70,6 @@ You can customize your card by adding the following query parameters:
 ```
 
 ### Output:
-
-[![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=15)](https://discord.gg/seu-convite)
 
 > [!NOTE]
 > If the server has no photo, a default projetct photo will be used.
