@@ -69,9 +69,7 @@ router.get("/api/:serverId", async (req, res) => {
     const svg = await generateServerInviteSVGWithBase64Image(serverData);
 
     res.setHeader("Content-Type", "image/svg+xml");
-    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-    res.setHeader("Pragma", "no-cache");
-    res.setHeader("Expires", "0");
+    res.setHeader("Cache-Control", "public, max-age=60, s-maxage=60");
     res.send(svg);
   } catch (error) {
     console.error("Error generating server invite image:", error);
@@ -79,9 +77,7 @@ router.get("/api/:serverId", async (req, res) => {
     const errorSvg = generateErrorSVG();
 
     res.setHeader("Content-Type", "image/svg+xml");
-    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-    res.setHeader("Pragma", "no-cache");
-    res.setHeader("Expires", "0");
+    res.setHeader("Cache-Control", "public, max-age=60, s-maxage=60");
     res.status(500).send(errorSvg);
   }
 });
