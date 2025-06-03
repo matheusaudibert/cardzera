@@ -47,7 +47,7 @@ router.get("/api/:serverId", async (req, res) => {
     ).size;
 
     let iconURL = guild.iconURL();
-    if (!iconURL) iconURL = "https://cdn3.emoji.gg/emojis/17959-nitro-pass.png";
+    if (!iconURL) iconURL = "https://cdn3.emoji.gg/emojis/9738-discord-ico.png";
     const base64IconData = await base64Icon(iconURL);
 
     const serverData = {
