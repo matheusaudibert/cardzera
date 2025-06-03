@@ -38,22 +38,27 @@ Then, it generates a beautifully styled card showing this information that you c
 ### Basic endpoint
 
 ```
-https://cardzera.onrender.com/api/:serverId
+https://cardzera.onrender.com/api/:serverId?t={timestamp}
 ```
 
 Replace `:serverId` with your Discord server ID.
 
+> [!IMPORTANT]
+> Adding ```?t={timestamp}``` to the URL is essential to force the card to update in real time.
+
+
 Example:
 
 ```markdown
-[![Discord Server Card](https://cardzera.onrender.com/api/:serverId)](https://discord.gg/serverInviteCode)
+[![Discord Server Card](https://cardzera.onrender.com/api/:serverId?t={timestamp})](https://discord.gg/serverInviteCode)
 ```
+
 
 ## Live Examples
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716)](https://discord.gg/GU9GjTdNDf)
+[![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716?t={timestamp})](https://discord.gg/GU9GjTdNDf)
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1112920281367973900)](https://discord.gg/t86nFuCrbj)
+[![Discord Server Card](https://cardzera.onrender.com/api/1112920281367973900?t={timestamp})](https://discord.gg/t86nFuCrbj)
 
 ## Parameters
 
@@ -72,12 +77,12 @@ You can customize your card by adding the following query parameters:
 ### Example with all parameters:
 
 ```markdown
-[![Discord Server Card](https://cardzera.onrender.com/api/:serverId?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0)](https://discord.gg/serverInviteCode)
+[![Discord Server Card](https://cardzera.onrender.com/api/:serverId?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?t={timestamp})](https://discord.gg/serverInviteCode)
 ```
 
 ### Output:
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0)](https://discord.gg/GU9GjTdNDf)
+[![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?t={timestamp})](https://discord.gg/GU9GjTdNDf)
 
 > [!NOTE]
 > If the server has no photo, a default photo will be used.
