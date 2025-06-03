@@ -44,15 +44,13 @@ https://cardzera.onrender.com/api/:serverId?t={timestamp}
 Replace `:serverId` with your Discord server ID.
 
 > [!IMPORTANT]
-> Adding ```?t={timestamp}``` to the URL is essential to force the card to update in real time.
-
+> Adding `?t={timestamp}` to the URL is essential to force the card to update in real time.
 
 Example:
 
 ```markdown
 [![Discord Server Card](https://cardzera.onrender.com/api/:serverId?t={timestamp})](https://discord.gg/serverInviteCode)
 ```
-
 
 ## Live Examples
 

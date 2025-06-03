@@ -2,6 +2,7 @@ const express = require("express");
 const { base64Icon } = require("../utils/serverUtils");
 const { generateServerInviteSVGWithBase64Image } = require("../image/svg");
 const { generateErrorSVG } = require("../image/errorSvg");
+const { on } = require("ws");
 const router = express.Router();
 
 // Configurar pasta de arquivos estáticos
@@ -41,10 +42,12 @@ router.get("/api/:serverId", async (req, res) => {
     }
 
     await guild.members.fetch();
-    const onlineMembers = guild.members.cache.filter(
-      (member) =>
-        member.presence?.status && member.presence.status !== "offline"
-    ).size;
+    const onlineMembers = guild.members.cache
+      .filter(
+        (member) =>
+          member.presence?.status && member.presence.status !== "invisible"
+      )
+      .size.toLocaleString("en-US");
 
     let iconURL = guild.iconURL();
     if (!iconURL) iconURL = "https://cdn3.emoji.gg/emojis/9738-discord-ico.png";
@@ -53,7 +56,7 @@ router.get("/api/:serverId", async (req, res) => {
     const serverData = {
       name: guild.name,
       iconURL: base64IconData,
-      memberCount: guild.memberCount,
+      memberCount: guild.memberCount.toLocaleString("en-US"),
       onlineCount: onlineMembers,
       customization: {
         backgroundColor: formatColor(backgroundColor),
