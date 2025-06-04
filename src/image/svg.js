@@ -102,7 +102,7 @@ async function generateServerInviteSVGWithBase64Image(serverData) {
         ${membersText}
       </text>
 
-      <rect x="${buttonX}" y="${buttonY}" width="${buttonWidth}" height="${buttonHeight}" rx="0" ry="0" fill="${buttonColor}" />
+      <rect x="${buttonX}" y="${buttonY}" width="${buttonWidth}" height="${buttonHeight}" rx="10" ry="10" fill="${buttonColor}" />
       <text x="${
         width / 2
       }" y="${buttonTextY}" font-family="Poppins" font-size="16" fill="${buttonTextColor}" text-anchor="middle" font-weight="600">
