@@ -7,10 +7,8 @@ router.get("/guilds", async (req, res) => {
 
     const guilds = await Promise.all(
       client.guilds.cache.map(async (guild) => {
-        await guild.members.fetch();
-        const onlineMembers = guild.members.cache.filter(
-          (member) =>
-            member.presence?.status && member.presence.status !== "invisible"
+        const onlineMembers = guild.members.cache.filter((member) =>
+          ["online", "idle", "dnd"].includes(member.presence?.status)
         ).size;
         const boostersCount = guild.members.cache.filter(
           (member) => member.premiumSince !== null

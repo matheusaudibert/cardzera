@@ -42,10 +42,10 @@ router.get("/api/:serverId", async (req, res) => {
     }
 
     await guild.members.fetch();
+
     const onlineMembers = guild.members.cache
-      .filter(
-        (member) =>
-          member.presence?.status && member.presence.status !== "invisible"
+      .filter((member) =>
+        ["online", "idle", "dnd"].includes(member.presence?.status)
       )
       .size.toLocaleString("en-US");
 
@@ -57,7 +57,7 @@ router.get("/api/:serverId", async (req, res) => {
       name: guild.name,
       iconURL: base64IconData,
       memberCount: guild.memberCount.toLocaleString("en-US"),
-      onlineCount: onlineMembers,
+      onlineCount: onlineMembers.toLocaleString("en-US"),
       customization: {
         backgroundColor: formatColor(backgroundColor),
         buttonColor: formatColor(buttonColor),
