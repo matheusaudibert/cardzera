@@ -54,9 +54,9 @@ Example:
 
 ## Live Examples
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716?t={timestamp})](https://discord.gg/GU9GjTdNDf)
+[![Discord Server Card](https://cardzera.onrender.com/api/1383718526694461532?t={timestamp})](https://discord.gg/XuhsaMEqzf)
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1112920281367973900?t={timestamp})](https://discord.gg/t86nFuCrbj)
+[![Discord Server Card](https://cardzera.onrender.com/api/1112920281367973900?t={timestamp})](https://discord.gg/servidordosprogramadores)
 
 ## Parameters
 
