@@ -38,7 +38,7 @@ Then, it generates a beautifully styled card showing this information that you c
 ### Basic endpoint
 
 ```
-https://cardzera.onrender.com/api/:serverId?t={timestamp}
+https://cardzera.audibert.dev/api/:serverId?t={timestamp}
 ```
 
 Replace `:serverId` with your Discord server ID.
@@ -49,14 +49,14 @@ Replace `:serverId` with your Discord server ID.
 Example:
 
 ```markdown
-[![Discord Server Card](https://cardzera.onrender.com/api/:serverId?t={timestamp})](https://discord.gg/serverInviteCode)
+[![Discord Server Card](https://cardzera.audibert.dev/api/:serverId?t={timestamp})](https://discord.gg/serverInviteCode)
 ```
 
 ## Live Examples
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1383718526694461532?t={timestamp})](https://discord.gg/XuhsaMEqzf)
+[![Discord Server Card](https://cardzera.audibert.dev/api/1383718526694461532?t={timestamp})](https://discord.gg/XuhsaMEqzf)
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1112920281367973900?t={timestamp})](https://discord.gg/servidordosprogramadores)
+[![Discord Server Card](https://cardzera.audibert.dev/api/1112920281367973900?t={timestamp})](https://discord.gg/servidordosprogramadores)
 
 ## Parameters
 
@@ -75,12 +75,12 @@ You can customize your card by adding the following query parameters:
 ### Example with all parameters:
 
 ```markdown
-[![Discord Server Card](https://cardzera.onrender.com/api/:serverId?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?t={timestamp})](https://discord.gg/serverInviteCode)
+[![Discord Server Card](https://cardzera.audibert.dev/api/:serverId?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?t={timestamp})](https://discord.gg/serverInviteCode)
 ```
 
 ### Output:
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1383718526694461532?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?t={timestamp})](https://discord.gg/XuhsaMEqzf)
+[![Discord Server Card](https://cardzera.audibert.dev/api/1383718526694461532?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?t={timestamp})](https://discord.gg/XuhsaMEqzf)
 
 > [!NOTE]
 > If the server has no photo, a default photo will be used.
@@ -90,7 +90,7 @@ You can customize your card by adding the following query parameters:
 Get information about all servers being monitored by the bot:
 
 ```
-GET https://cardzera.onrender.com/guilds
+GET https://cardzera.audibert.dev/guilds
 ```
 
 ### Response
