@@ -38,7 +38,7 @@ Then, it generates a beautifully styled card showing this information that you c
 ### Basic endpoint
 
 ```
-https://cardzera.onrender.com/api/:serverId?t={timestamp}
+https://cardzera.audibert.dev/api/:serverId?t={timestamp}
 ```
 
 Replace `:serverId` with your Discord server ID.
@@ -49,14 +49,14 @@ Replace `:serverId` with your Discord server ID.
 Example:
 
 ```markdown
-[![Discord Server Card](https://cardzera.onrender.com/api/:serverId?t={timestamp})](https://discord.gg/serverInviteCode)
+[![Discord Server Card](https://cardzera.audibert.dev/api/:serverId?t={timestamp})](https://discord.gg/serverInviteCode)
 ```
 
 ## Live Examples
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716?t={timestamp})](https://discord.gg/GU9GjTdNDf)
+[![Discord Server Card](https://cardzera.audibert.dev/api/1383718526694461532?t={timestamp})](https://discord.gg/XuhsaMEqzf)
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1112920281367973900?t={timestamp})](https://discord.gg/t86nFuCrbj)
+[![Discord Server Card](https://cardzera.audibert.dev/api/1112920281367973900?t={timestamp})](https://discord.gg/servidordosprogramadores)
 
 ## Parameters
 
@@ -75,15 +75,63 @@ You can customize your card by adding the following query parameters:
 ### Example with all parameters:
 
 ```markdown
-[![Discord Server Card](https://cardzera.onrender.com/api/:serverId?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?t={timestamp})](https://discord.gg/serverInviteCode)
+[![Discord Server Card](https://cardzera.audibert.dev/api/:serverId?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?t={timestamp})](https://discord.gg/serverInviteCode)
 ```
 
 ### Output:
 
-[![Discord Server Card](https://cardzera.onrender.com/api/1376926676184858716?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?t={timestamp})](https://discord.gg/GU9GjTdNDf)
+[![Discord Server Card](https://cardzera.audibert.dev/api/1383718526694461532?backgroundColor=ffffff&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?t={timestamp})](https://discord.gg/XuhsaMEqzf)
 
 > [!NOTE]
 > If the server has no photo, a default photo will be used.
+
+## Guilds Route
+
+Get information about all servers being monitored by the bot:
+
+```
+GET https://cardzera.audibert.dev/guilds
+```
+
+### Response
+
+The route returns a JSON array with detailed information about each server:
+
+```json
+[
+  {
+    "name": "Server Name",
+    "id": "Server ID",
+    "ownerId": "Owner ID",
+    "icon": "Server icon URL",
+    "banner": "Server banner URL",
+    "splash": "Server splash URL",
+    "memberCount": "Total member count",
+    "onlineCount": "Online members count",
+    "boostCount": "Number of boosts",
+    "boostersCount": "Number of boosters"
+  }
+]
+```
+
+### Response Example
+
+```json
+[
+  {
+    "name": "Servidor dos Programadores",
+    "id": "1112920281367973900",
+    "ownerId": "282182618336854026",
+    "icon": "https://cdn.discordapp.com/icons/1112920281367973900/a_16f751425469d6b40897500a71967e6b.gif",
+    "banner": "https://cdn.discordapp.com/banners/1112920281367973900/a_16c5b67a8a6b891bea44c5f0c45a22b1.gif",
+    "splash": "https://cdn.discordapp.com/splashes/1112920281367973900/473678c810575b5bb2783af9dbfe1752.webp",
+    "memberCount": 7107,
+    "onlineCount": 724,
+    "boostCount": 18,
+    "boostersCount": 13
+  }
+]
+```
 
 ## Contribuition
 
