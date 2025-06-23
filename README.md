@@ -30,9 +30,6 @@ Then, it generates a beautifully styled card showing this information that you c
    | `View Server Insights` | `To acesses server features (coming soon)` |
    | `Members Intent`       | `To count online members`                  |
 
-> [!TIP]
-> Get your server ID (Enable Developer Mode > Right click server > Copy ID)
-
 ## Usage
 
 ### Basic endpoint
@@ -43,8 +40,8 @@ https://cardzera.audibert.dev/api/:serverId?t={timestamp}
 
 Replace `:serverId` with your Discord server ID.
 
-> [!IMPORTANT]
-> Adding `?t={timestamp}` to the URL is essential to force the card to update in real time.
+> [!TIP]
+> Get your server ID (Enable Developer Mode > Right click server > Copy ID)
 
 Example:
 
@@ -57,6 +54,9 @@ Example:
 [![Discord Server Card](https://cardzera.audibert.dev/api/1383718526694461532?t={timestamp})](https://discord.gg/XuhsaMEqzf)
 
 [![Discord Server Card](https://cardzera.audibert.dev/api/1112920281367973900?t={timestamp})](https://discord.gg/servidordosprogramadores)
+
+> [!IMPORTANT]
+> Adding `?t={timestamp}` to the URL is essential to force the card to update in real time.
 
 ## Parameters
 
