@@ -2,10 +2,8 @@ const express = require("express");
 const { base64Icon } = require("../utils/serverUtils");
 const { generateServerInviteSVGWithBase64Image } = require("../image/svg");
 const { generateErrorSVG } = require("../image/errorSvg");
-const { on } = require("ws");
 const router = express.Router();
 
-// Configurar pasta de arquivos estáticos
 router.use(express.static("public"));
 
 // Route to get server invite image with customization options
@@ -15,17 +13,22 @@ router.get("/api/:serverId", async (req, res) => {
     const serverId = req.params.serverId;
 
     // Get customization parameters from query string with defaults
-    const backgroundColor = req.query.backgroundColor || "1a1c1f"; // Default dark background
-    const buttonColor = req.query.buttonColor || "00863A"; // Default green button
-    const buttonText = req.query.buttonText || "Join"; // Default button text
-    const buttonTextColor = req.query.buttonTextColor || "ffffff"; // New parameter
-    const infoColor = req.query.infoColor || "b5bac1"; // Default info text color
+    const backgroundColor = req.query.backgroundColor || "1a1c1f";
+    const buttonColor = req.query.buttonColor || "00863A";
+    const buttonText = req.query.buttonText || "Join";
+    const buttonTextColor = req.query.buttonTextColor || "ffffff";
+    const infoColor = req.query.infoColor || "b5bac1";
     const nameColor = req.query.nameColor || "ffffff";
 
     let borderRadius = parseInt(req.query.borderRadius);
     borderRadius = !isNaN(borderRadius)
-      ? Math.min(Math.max(borderRadius, 0), 30) // Clamp between 0-30
-      : 10; // Default value
+      ? Math.min(Math.max(borderRadius, 0), 20)
+      : 10;
+
+    let buttonBorderRadius = parseInt(req.query.buttonBorderRadius);
+    buttonBorderRadius = !isNaN(buttonBorderRadius)
+      ? Math.min(Math.max(buttonBorderRadius, 0), 20)
+      : 10;
 
     const guild = await client.guilds.fetch(serverId).catch(() => null);
 
@@ -66,6 +69,7 @@ router.get("/api/:serverId", async (req, res) => {
         infoColor: formatColor(infoColor),
         borderRadius: borderRadius,
         nameColor: formatColor(nameColor),
+        buttonBorderRadius: buttonBorderRadius,
       },
     };
 

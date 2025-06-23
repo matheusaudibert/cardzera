@@ -85,54 +85,6 @@ You can customize your card by adding the following query parameters:
 > [!NOTE]
 > If the server has no photo, a default photo will be used.
 
-## Guilds Route
-
-Get information about all servers being monitored by the bot:
-
-```
-GET https://cardzera.onrender.com/guilds
-```
-
-### Response
-
-The route returns a JSON array with detailed information about each server:
-
-```json
-[
-  {
-    "name": "Server Name",
-    "id": "Server ID",
-    "ownerId": "Owner ID",
-    "icon": "Server icon URL",
-    "banner": "Server banner URL",
-    "splash": "Server splash URL",
-    "memberCount": "Total member count",
-    "onlineCount": "Online members count",
-    "boostCount": "Number of boosts",
-    "boostersCount": "Number of boosters"
-  }
-]
-```
-
-### Response Example
-
-```json
-[
-  {
-    "name": "Servidor dos Programadores",
-    "id": "1112920281367973900",
-    "ownerId": "282182618336854026",
-    "icon": "https://cdn.discordapp.com/icons/1112920281367973900/a_16f751425469d6b40897500a71967e6b.gif",
-    "banner": "https://cdn.discordapp.com/banners/1112920281367973900/a_16c5b67a8a6b891bea44c5f0c45a22b1.gif",
-    "splash": "https://cdn.discordapp.com/splashes/1112920281367973900/473678c810575b5bb2783af9dbfe1752.webp",
-    "memberCount": 7107,
-    "onlineCount": 724,
-    "boostCount": 18,
-    "boostersCount": 13
-  }
-]
-```
-
 ## Contribuition
 
 Contributions are welcome! Feel free to open an issue or submit a pull request if you have a way to improve this project.

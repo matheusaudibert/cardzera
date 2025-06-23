@@ -13,13 +13,14 @@ async function generateServerInviteSVGWithBase64Image(serverData) {
   } = serverData;
 
   const {
+    borderRadius = 10,
     backgroundColor = "#1a1c1f",
+    infoColor = "#b5bac1",
+    nameColor = "#ffffff",
     buttonColor = "#00863A",
     buttonText = "Join",
     buttonTextColor = "#ffffff",
-    infoColor = "#b5bac1",
-    borderRadius = 10,
-    nameColor = "#ffffff",
+    buttonBorderRadius = 10,
   } = customization;
 
   const safeName = name.length > 26 ? name.slice(0, 26) + "..." : name;
@@ -33,7 +34,6 @@ async function generateServerInviteSVGWithBase64Image(serverData) {
   const onlineText = `${onlineCount} Online`;
   const membersText = `${memberCount} Members`;
   const onlineTextWidth = onlineText.length * 8;
-  // const membersTextWidth = membersText.length * 8;
 
   const width = 375;
   const height = 150;
@@ -102,7 +102,7 @@ async function generateServerInviteSVGWithBase64Image(serverData) {
         ${membersText}
       </text>
 
-      <rect x="${buttonX}" y="${buttonY}" width="${buttonWidth}" height="${buttonHeight}" rx="10" ry="10" fill="${buttonColor}" />
+      <rect x="${buttonX}" y="${buttonY}" width="${buttonWidth}" height="${buttonHeight}" rx="${buttonBorderRadius}" ry="${buttonBorderRadius}" fill="${buttonColor}" />
       <text x="${
         width / 2
       }" y="${buttonTextY}" font-family="Poppins" font-size="16" fill="${buttonTextColor}" text-anchor="middle" font-weight="600">

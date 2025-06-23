@@ -2,7 +2,6 @@ require("dotenv").config();
 const { Client, GatewayIntentBits } = require("discord.js");
 const express = require("express");
 const serverRoutes = require("./routes/server");
-const guildsRoutes = require("./routes/guilds");
 const path = require("path");
 
 // Discord client configuration
@@ -12,7 +11,7 @@ const client = new Client({
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
     GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.GuildPresences, // Added to track online status
+    GatewayIntentBits.GuildPresences,
   ],
 });
 
@@ -30,7 +29,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// // Serve favicon
+// Server favicon
 app.get("/favicon.ico", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "favicon.ico"));
 });
@@ -45,14 +44,15 @@ app.get("/", (req, res) => {
 
 // Server info routes
 app.use("/", serverRoutes);
-app.use("/", guildsRoutes);
 
 // Initialize the bot and server
 async function initialize() {
   try {
     // Start Express server
     app.listen(PORT, () => {
-      console.log(`Express server running on port ${PORT}`);
+      console.log(
+        `API is running: http://localhost:${PORT}/api/1112920281367973900`
+      );
     });
 
     // Discord bot login
@@ -70,7 +70,7 @@ client.once("ready", () => {
   client.user.setPresence({
     activities: [
       {
-        name: "the server <3",
+        name: "server updates",
         type: 3,
       },
     ],
