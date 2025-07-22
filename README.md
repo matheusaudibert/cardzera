@@ -19,6 +19,9 @@ The service uses [Cardzera#8965](https://discord.com/users/1368283106276147200) 
 
 Then, it generates a beautifully styled card showing this information that you can embed anywhere. The generated card is an SVG image optimized for fast loading and can be fully customized with your preferred colors and style.
 
+> [!IMPORTANT]  
+> The number of online members in large servers may not be completely accurate due to a limitation of the Discord API.
+
 ### Prerequisites
 
 1. First, [invite Cardzera Bot to your server](https://discord.com/oauth2/authorize?client_id=1368283106276147200&permissions=525312&integration_type=0&scope=bot).
