@@ -62,22 +62,23 @@ Example:
 
 You can customize your card by adding the following query parameters:
 
-| Parameter            | Default  | Description                                      |
-| -------------------- | -------- | ------------------------------------------------ |
-| `backgroundColor`    | `1a1c1f` | Card background color                            |
-| `buttonColor`        | `00863A` | Join button color                                |
-| `buttonText`         | `Join`   | Button text (max 28 characters)                  |
-| `buttonTextColor`    | `ffffff` | Join button color                                | 
-| `buttonBorderRadius` | `10`     | Button Border radius in pixels (min: 0, max: 30) |
-| `infoColor`          | `b5bac1` | Information color (members/online counter)       |
-| `nameColor`          | `ffffff` | Server name color                                |
-| `borderRadius`       | `10`     | Border radius in pixels (min: 0, max: 30)        |
-
+| Parameter            | Default  | Description                                                       |
+| -------------------- | -------- | ----------------------------------------------------------------- |
+| `backgroundColor`    | `1a1c1f` | Card background color                                             |
+| `buttonColor`        | `00863A` | Join button color                                                 |
+| `buttonText`         | `Join`   | Button text (max 28 characters)                                   |
+| `buttonTextColor`    | `ffffff` | Join button color                                                 |
+| `buttonBorderRadius` | `10`     | Button Border radius in pixels (min: 0, max: 30)                  |
+| `infoColor`          | `b5bac1` | Information color (members/online counter)                        |
+| `nameColor`          | `ffffff` | Server name color                                                 |
+| `borderRadius`       | `10`     | Border radius in pixels (min: 0, max: 30)                         |
+| `titleLen`           | `26`     | Maximum number of characters allowed for the server name.         |
+| `elipsis`            | `true`   | Ellipsis (`...`) at the end if the server name exceeds the limit. |
 
 ### Example with all parameters:
 
 ```markdown
-[![Discord Server Card](https://cardzera.audibert.dev/api/:serverId?backgroundColor=ffffff&buttonColor=000000&buttonBorderRadius=0&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?t={timestamp})](https://discord.gg/serverInviteCode)
+[![Discord Server Card](https://cardzera.audibert.dev/api/:serverId?backgroundColor=ffffff&buttonColor=000000&buttonBorderRadius=0&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?titleLen=8&elipsis=true?t={timestamp})](https://discord.gg/serverInviteCode)
 ```
 
 ### Output:
