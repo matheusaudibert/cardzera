@@ -62,15 +62,17 @@ Example:
 
 You can customize your card by adding the following query parameters:
 
-| Parameter         | Default  | Description                                |
-| ----------------- | -------- | ------------------------------------------ |
-| `backgroundColor` | `1a1c1f` | Card background color                      |
-| `buttonColor`     | `00863A` | Join button color                          |
-| `buttonText`      | `Join`   | Button text (max 28 characters)            |
-| `buttonTextColor` | `ffffff` | Button text color                          |
-| `infoColor`       | `b5bac1` | Information color (members/online counter) |
-| `nameColor`       | `ffffff` | Server name color                          |
-| `borderRadius`    | `10`     | Border radius in pixels (min: 0, max: 30)  |
+| Parameter            | Default  | Description                                      |
+| -------------------- | -------- | ------------------------------------------------ |
+| `backgroundColor`    | `1a1c1f` | Card background color                            |
+| `buttonColor`        | `00863A` | Join button color                                |
+| `buttonText`         | `Join`   | Button text (max 28 characters)                  |
+| `buttonTextColor`    | `ffffff` | Join button color                                | 
+| `buttonBorderRadius` | `10`     | Button Border radius in pixels (min: 0, max: 30) |
+| `infoColor`          | `b5bac1` | Information color (members/online counter)       |
+| `nameColor`          | `ffffff` | Server name color                                |
+| `borderRadius`       | `10`     | Border radius in pixels (min: 0, max: 30)        |
+
 
 ### Example with all parameters:
 
@@ -80,7 +82,7 @@ You can customize your card by adding the following query parameters:
 
 ### Output:
 
-[![Discord Server Card](https://cardzera.audibert.dev/api/1383718526694461532?backgroundColor=ffffff&buttonBorderRadius=0&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?t={timestamp})](https://discord.gg/XuhsaMEqzf)
+[![Discord Server Card](https://cardzera.audibert.dev/api/1383718526694461532?backgroundColor=ffffff&buttonBorderRadius=10&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?t={timestamp})](https://discord.gg/XuhsaMEqzf)
 
 > [!NOTE]
 > If the server has no photo, a default photo will be used.
