@@ -30,6 +30,15 @@ router.get("/api/:serverId", async (req, res) => {
       ? Math.min(Math.max(buttonBorderRadius, 0), 20)
       : 10;
 
+    let titleLen = parseInt(req.query.titleLen);
+    if (isNaN(titleLen) || titleLen < 1) titleLen = 26;
+    if (titleLen > 26) titleLen = 26;
+
+    let elipsis = true;
+    if (typeof req.query.elipsis === "string") {
+      elipsis = req.query.elipsis === "true";
+    }
+
     const guild = await client.guilds.fetch(serverId).catch(() => null);
 
     if (!guild) {
@@ -70,6 +79,8 @@ router.get("/api/:serverId", async (req, res) => {
         borderRadius: borderRadius,
         nameColor: formatColor(nameColor),
         buttonBorderRadius: buttonBorderRadius,
+        titleLen: titleLen,
+        elipsis: elipsis,
       },
     };
 

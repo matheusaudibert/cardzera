@@ -21,9 +21,18 @@ async function generateServerInviteSVGWithBase64Image(serverData) {
     buttonText = "Join",
     buttonTextColor = "#ffffff",
     buttonBorderRadius = 10,
+    titleLen = 26,
+    elipsis = true,
   } = customization;
 
-  const safeName = name.length > 26 ? name.slice(0, 26) + "..." : name;
+  let safeName = name;
+  if (typeof titleLen === "number" && titleLen > 0 && name.length > titleLen) {
+    if (elipsis) {
+      safeName = name.slice(0, titleLen) + "...";
+    } else {
+      safeName = name.slice(0, titleLen);
+    }
+  }
   const safeButtonText =
     buttonText.length > 28 ? buttonText.slice(0, 28) + "..." : buttonText;
   const escapedName = safeName
