@@ -59,7 +59,7 @@ Example:
 [![Discord Server Card](https://cardzera.audibert.dev/api/1112920281367973900?t={timestamp})](https://discord.gg/servidordosprogramadores)
 
 > [!IMPORTANT]
-> Adding `?t={timestamp}` to the URL is essential to force the card to update in real time.
+> Adding `t={timestamp}` to the URL is essential to force the card to update in real time.
 
 ## Parameters
 
