@@ -81,12 +81,12 @@ You can customize your card by adding the following query parameters:
 ### Example with all parameters:
 
 ```markdown
-[![Discord Server Card](https://cardzera.audibert.dev/api/:serverId?backgroundColor=ffffff&buttonColor=000000&buttonBorderRadius=0&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?titleLen=8&elipsis=true?t={timestamp})](https://discord.gg/serverInviteCode)
+[![Discord Server Card](https://cardzera.audibert.dev/api/:serverId?backgroundColor=ffffff&buttonColor=000000&buttonBorderRadius=0&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0&titleLen=8&elipsis=true&t={timestamp})](https://discord.gg/serverInviteCode)
 ```
 
 ### Output:
 
-[![Discord Server Card](https://cardzera.audibert.dev/api/1383718526694461532?backgroundColor=ffffff&buttonBorderRadius=10&buttonColor=000000&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0?t={timestamp})](https://discord.gg/XuhsaMEqzf)
+[![Discord Server Card](https://cardzera.audibert.dev/api/1383718526694461532?backgroundColor=ffffff&buttonColor=000000&buttonBorderRadius=0&buttonText=Star%20the%20repository&buttonTextColor=ffffff&infoColor=353535&nameColor=000000&borderRadius=0&titleLen=8&elipsis=true&t={timestamp})](https://discord.gg/XuhsaMEqzf)
 
 > [!NOTE]
 > If the server has no photo, a default photo will be used.
