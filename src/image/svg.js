@@ -41,9 +41,18 @@ async function generateServerInviteSVGWithBase64Image(serverData) {
     .replace(/>/g, "&gt;");
 
   let displayOnlineCount = onlineCount;
-  if (onlineCount > 1000) {
-    displayOnlineCount = `${onlineCount + 500}+`;
+
+  const onlineCountNumber =
+    typeof onlineCount === "string"
+      ? parseInt(onlineCount.replace(/,/g, ""))
+      : onlineCount;
+
+  if (onlineCountNumber > 1000) {
+    displayOnlineCount = (onlineCountNumber + 400).toLocaleString("en-US");
+  } else {
+    displayOnlineCount = onlineCount;
   }
+
   const onlineText = `${displayOnlineCount} Online`;
   const membersText = `${memberCount} Members`;
   const onlineTextWidth = onlineText.length * 8;
@@ -97,7 +106,7 @@ async function generateServerInviteSVGWithBase64Image(serverData) {
           : `<rect x="${iconX}" y="${iconY}" width="${iconSize}" height="${iconSize}" rx="${iconRadius}" ry="${iconRadius}" fill="#5865f2" />`
       }
 
-      <text x="${textStartX}" y="${serverNameY}" font-family="Poppins" font-weight="600" font-size="18" fill="${nameColor}">
+      <text x="${textStartX}" y="${serverNameY}" font-family="Poppins" font-weight="600" font-size="17.7" fill="${nameColor}">
         ${escapedName}
       </text>
 
