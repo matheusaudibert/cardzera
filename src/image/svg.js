@@ -40,7 +40,11 @@ async function generateServerInviteSVGWithBase64Image(serverData) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 
-  const onlineText = `${onlineCount} Online`;
+  let displayOnlineCount = onlineCount;
+  if (onlineCount > 1000) {
+    displayOnlineCount = `${onlineCount + 500}+`;
+  }
+  const onlineText = `${displayOnlineCount} Online`;
   const membersText = `${memberCount} Members`;
   const onlineTextWidth = onlineText.length * 8;
 
