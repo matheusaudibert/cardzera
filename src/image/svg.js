@@ -97,37 +97,33 @@ async function generateServerInviteSVGWithBase64Image(serverData) {
         </clipPath>
       </defs>
 
-      ${
-        iconURL
-          ? `<image
+      ${iconURL
+      ? `<image
               x="${iconX}" y="${iconY}" width="${iconSize}" height="${iconSize}"
               xlink:href="${iconURL}" clip-path="url(#roundedImageCorners)"
             />`
-          : `<rect x="${iconX}" y="${iconY}" width="${iconSize}" height="${iconSize}" rx="${iconRadius}" ry="${iconRadius}" fill="#5865f2" />`
-      }
+      : `<rect x="${iconX}" y="${iconY}" width="${iconSize}" height="${iconSize}" rx="${iconRadius}" ry="${iconRadius}" fill="#5865f2" />`
+    }
 
       <text x="${textStartX}" y="${serverNameY}" font-family="Poppins" font-weight="600" font-size="17.7" fill="${nameColor}">
         ${escapedName}
       </text>
 
       <circle cx="${onlineCircleX}" cy="${statusY}" r="4" fill="#43A25A" />
-      <text x="${onlineTextX}" y="${
-    statusY + 4
-  }" font-family="Poppins" font-size="15" fill="${infoColor}">
+      <text x="${onlineTextX}" y="${statusY + 4
+    }" font-family="Poppins" font-size="15" fill="${infoColor}">
         ${onlineText}
       </text>
 
       <circle cx="${membersCircleX}" cy="${statusY}" r="4" fill="#82838B" />
-      <text x="${membersTextX}" y="${
-    statusY + 4
-  }" font-family="Poppins" font-size="15" fill="${infoColor}">
+      <text x="${membersTextX}" y="${statusY + 4
+    }" font-family="Poppins" font-size="15" fill="${infoColor}">
         ${membersText}
       </text>
 
       <rect x="${buttonX}" y="${buttonY}" width="${buttonWidth}" height="${buttonHeight}" rx="${buttonBorderRadius}" ry="${buttonBorderRadius}" fill="${buttonColor}" />
-      <text x="${
-        width / 2
-      }" y="${buttonTextY}" font-family="Poppins" font-size="16" fill="${buttonTextColor}" text-anchor="middle" font-weight="600">
+      <text x="${width / 2
+    }" y="${buttonTextY}" font-family="Poppins" font-size="16" fill="${buttonTextColor}" text-anchor="middle" font-weight="600">
         ${safeButtonText}
       </text>
     </svg>
