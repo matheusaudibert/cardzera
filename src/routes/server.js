@@ -4,6 +4,41 @@ const { generateServerInviteSVGWithBase64Image } = require("../image/svg");
 const { generateErrorSVG } = require("../image/errorSvg");
 const router = express.Router();
 
+const serverCache = new Map();
+const CACHE_TTL = 5 * 60 * 1000;
+
+async function getServerData(client, serverId) {
+  const cached = serverCache.get(serverId);
+  if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+    return cached.data;
+  }
+
+  const guild = await client.guilds.fetch(serverId).catch(() => null);
+  if (!guild) return null;
+
+  await guild.members.fetch();
+
+  const onlineCount = guild.members.cache
+    .filter((member) =>
+      ["online", "idle", "dnd"].includes(member.presence?.status)
+    )
+    .size.toLocaleString("en-US");
+
+  let iconURL = guild.iconURL();
+  if (!iconURL) iconURL = "https://cdn3.emoji.gg/emojis/9738-discord-ico.png";
+  const iconBase64 = await base64Icon(iconURL);
+
+  const data = {
+    name: guild.name,
+    iconURL: iconBase64,
+    memberCount: guild.memberCount.toLocaleString("en-US"),
+    onlineCount,
+  };
+
+  serverCache.set(serverId, { data, timestamp: Date.now() });
+  return data;
+}
+
 router.use(express.static("public"));
 
 // Route to get server invite image with customization options
@@ -39,9 +74,9 @@ router.get("/api/:serverId", async (req, res) => {
       elipsis = req.query.elipsis === "true";
     }
 
-    const guild = await client.guilds.fetch(serverId).catch(() => null);
+    const guildData = await getServerData(client, serverId);
 
-    if (!guild) {
+    if (!guildData) {
       const customization = {
         backgroundColor: formatColor(backgroundColor),
         borderRadius: borderRadius,
@@ -53,23 +88,11 @@ router.get("/api/:serverId", async (req, res) => {
       return res.send(errorSvg);
     }
 
-    await guild.members.fetch();
-
-    const onlineMembers = guild.members.cache
-      .filter((member) =>
-        ["online", "idle", "dnd"].includes(member.presence?.status)
-      )
-      .size.toLocaleString("en-US");
-
-    let iconURL = guild.iconURL();
-    if (!iconURL) iconURL = "https://cdn3.emoji.gg/emojis/9738-discord-ico.png";
-    const base64IconData = await base64Icon(iconURL);
-
     const serverData = {
-      name: guild.name,
-      iconURL: base64IconData,
-      memberCount: guild.memberCount.toLocaleString("en-US"),
-      onlineCount: onlineMembers.toLocaleString("en-US"),
+      name: guildData.name,
+      iconURL: guildData.iconURL,
+      memberCount: guildData.memberCount,
+      onlineCount: guildData.onlineCount,
       customization: {
         backgroundColor: formatColor(backgroundColor),
         buttonColor: formatColor(buttonColor),
