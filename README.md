@@ -38,7 +38,7 @@ Then, it generates a beautifully styled card showing this information that you c
 ### Basic endpoint
 
 ```
-https://cardzera.audibert.dev/api/:serverId?t={timestamp}
+https://cardzera.audibert.dev/api/:serverId?t={timestamp} (5 minutes cache)
 ```
 
 Replace `:serverId` with your Discord server ID.
