@@ -54,9 +54,9 @@ Example:
 
 ## Live Examples
 
-[![Discord Server Card](https://cardzera.audibert.dev/api/1383718526694461532?t={timestamp})](https://discord.gg/XuhsaMEqzf)
+[![Discord Server Card](https://cardzera.audibert.dev/api/1383718526694461532)](https://discord.gg/XuhsaMEqzf)
 
-[![Discord Server Card](https://cardzera.audibert.dev/api/1112920281367973900?t={timestamp})](https://discord.gg/programador)
+[![Discord Server Card](https://cardzera.audibert.dev/api/1550342460008304675)](https://discord.gg/nerdsbrasil)
 
 > [!IMPORTANT]
 > Adding `t={timestamp}` to the URL is essential to force the card to update in real time.
